@@ -1,53 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <style>
+        #image {
+            width: 400px;
+            height: 300px;
+            border: 2px solid #ccc;
+            background-color: #f2f2f2;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        img.preview {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        img.preview:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
     <h1> Bienvenu sur notre site de blog</h1>
+
+    <!-- Zone d’aperçu -->
+    <div id="image">Survolez une image ci-dessous pour l'afficher ici</div>
+
     <main>
 
         <article>
            <h2> Comment developper un site web </h2>
-           <img src="website.jpg" alt="website" width="250" height="250">
-           <p>Pour faire un site web il existe plusieur methode et voici 3 outils simples et utile pour faire site dynamique</p>
-           <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JS</li>
-           </ul>
+           <img class="preview" src="website.jpg" alt="Développement web" width="250" height="250">
         </article>
 
         <article>
-            
-            <h2><a href="chiffres-jeu-video.jpg">Les jeux videos les plus joué en 2025</a></h2>
-            <img src="chiffres-jeu-video.jpg" alt="Jeux videos" width="250" height="250">
-            <p>Voici les jeux vidéo les plus joués en 2025 incluent les valeurs sûres comme
-            </p>
-            <ul>
-                <li>Fortnite</li>
-                <li>Gta Online</li>
-                <li>Genshin Impact</li>
-            </ul>
+            <h2>Les jeux vidéos les plus joués en 2025</h2>
+            <img class="preview" src="chiffres-jeu-video.jpg" alt="Jeux vidéos populaires" width="250" height="250">
         </article>
 
         <article>
-            <h2>Les Meilleurs Telephone en 2025</h2>
-            <img src="smartphone.jpg" alt="smartphone" width="250" height="250">
-            <p>Les meilleurs téléphones de 2025 dépendent de vos besoins voici une liste des meilleurs telephone en 2025
-            </p>
-            <ul>
-                <li>IPhone 17 Pro</li>
-                <li>Google Pixel 10 Pro</li>
-                <li>Samsung Galaxy S25</li>
-            </ul>
+            <h2>Les Meilleurs Téléphones en 2025</h2>
+            <img class="preview" src="smartphone.jpg" alt="Téléphones modernes" width="250" height="250">
         </article>
     </main>
 
     <footer>
         <p>Copyright © 2024 Mon Blog. Tous droits réservés.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
