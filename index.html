@@ -1,63 +1,104 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Preview Hover</title>
+
     <style>
-        #image {
-            width: 400px;
-            height: 300px;
-            border: 2px solid #ccc;
-            background-color: #f2f2f2;
-            background-size: cover;
-            background-position: center;
+        .preview{
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 500px;
+            height: 400px;
+            margin-left: 30%;
+            background-color: rgb(163, 161, 159);
+            border-radius: 12px;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            transition: background-image 0.3s ease;
+        }
+
+        #previewText{
+            margin-top: 10px;
             font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
         }
 
-        img.preview {
+        .imgage{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .imgage img{
+            border-radius: 12px;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.2s ease;
         }
 
-        img.preview:hover {
-            transform: scale(1.1);
+        .imgage img:hover{
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <h1> Bienvenu sur notre site de blog</h1>
 
-    <!-- Zone d’aperçu -->
-    <div id="image">Survolez une image ci-dessous pour l'afficher ici</div>
+    <div class="preview" id="Preview">
+        Hover over an image below to display here.
+        <div id="previewText"></div>
+    </div>
 
-    <main>
+    <div class="imgage"> 
+        <img src="img/bluedahir.jpg" 
+             alt="Blue Dahir" 
+             onmouseover="upDate(this)" 
+             onmouseout="unDo()">
 
-        <article>
-           <h2> Comment developper un site web </h2>
-           <img class="preview" src="website.jpg" alt="Développement web" width="250" height="250">
-        </article>
+        <img src="img/Redash.jpg"
+             alt="Red Ash"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()">
 
-        <article>
-            <h2>Les jeux vidéos les plus joués en 2025</h2>
-            <img class="preview" src="chiffres-jeu-video.jpg" alt="Jeux vidéos populaires" width="250" height="250">
-        </article>
+        <img src="img/bluedash.jpg"
+             alt="Blue Dash"
+             onmouseover="upDate(this)"
+             onmouseout="unDo()">
+    </div>
 
-        <article>
-            <h2>Les Meilleurs Téléphones en 2025</h2>
-            <img class="preview" src="smartphone.jpg" alt="Téléphones modernes" width="250" height="250">
-        </article>
-    </main>
+    <script>
+        function upDate(image) {
+            const preview = document.getElementById("Preview");
+            const previewText = document.getElementById("previewText");
 
-    <footer>
-        <p>Copyright © 2024 Mon Blog. Tous droits réservés.</p>
-    </footer>
+            // Affichage de l'image
+            preview.style.backgroundImage = `url('${image.src}')`;
+            preview.style.backgroundSize = "cover";
+            preview.style.backgroundPosition = "center";
 
-    <script src="script.js"></script>
+            // Affichage du texte alt
+            previewText.textContent = image.alt;
+        }
+
+        function unDo() {
+            const preview = document.getElementById("Preview");
+            const previewText = document.getElementById("previewText");
+
+            // Réinitialise l'image
+            preview.style.backgroundImage = "";
+            
+            // Réinitialise le texte
+            previewText.textContent = "";
+            preview.firstChild.textContent = "Hover over an image below to display here.";
+        }
+    </script>
+
 </body>
 </html>
